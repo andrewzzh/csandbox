@@ -11,6 +11,9 @@
 				"binaryPath": "/home/vmadmin/Andrew-c/csandbox/helloworld",
 				"binaryArgs": []
 			}
-		]
+		],
+		"files.associations": {
+			"array": "cpp"
+		}
 	}
 }

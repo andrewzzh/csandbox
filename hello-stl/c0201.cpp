@@ -13,6 +13,9 @@ int main(int argc, char *argv[]){
     const unsigned int ht_step {2U};
     const size_t ht_count {1 + (max_ht - min_ht) / ht_step};
 
+    const double lbs_per_kg {2.20462};
+    const double ins_per_m {39.3701};
+
     std::array<unsigned int, wt_count> weight_lbs;
     std::array<unsigned int, ht_count> height_ins;
 
@@ -37,6 +40,29 @@ int main(int argc, char *argv[]){
         std::cout << "---------";
     }
     std::cout << std::endl;
+
+    double bmi {};
+    unsigned int feet {};
+    unsigned int inches {};
+    const unsigned int inches_per_foot {12U};
+
+    for(const auto& h : height_ins){
+        feet = h / inches_per_foot;
+        std::cout << std::setw(2) << feet << "  |";
+        std::cout << std::fixed << std::setprecision(1);
+        for(const auto& w : weight_lbs){
+            bmi = h / ins_per_m;
+            bmi = (w / lbs_per_kg) / (bmi*bmi);
+            std::cout << std::setw(2) << " " << bmi << " |";
+        }
+        std::cout << std::endl;
+    }
+
+    for(size_t i {1}; i < wt_count; i++){
+        std::cout << "---------";
+    }
+    std::cout << "\nBMI from 18.5 to 24.9 is normal" << std::endl;
+
     return 0;
 
 }
