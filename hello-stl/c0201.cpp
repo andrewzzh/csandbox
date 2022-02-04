@@ -23,6 +23,8 @@ int main(int argc, char *argv[]){
         weight_lbs.at(i) = w;
     }
 
+    
+    
     unsigned int h{min_ht};
 
     for (auto& height : height_ins){
